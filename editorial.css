@@ -1,0 +1,71 @@
+/* Black, white and restrained brass. Shared presentation layer for every locale. */
+:root{--paper:#fff;--white:#fff;--ink:#171719;--muted:#68686c;--gold:#947236;--gold-light:#c6aa74;--line:#dedee0}
+::selection{background:#ded3bd;color:#171719}
+.site-header{height:100px;border-bottom:0;background:#fff}
+.brand-mark{color:#171719;border-color:#b2945d}
+.brand-name{font-family:var(--sans);letter-spacing:.08em;font-weight:500}
+.brand-name small{font-family:Georgia,serif;font-weight:400}
+.nav{gap:30px}.nav .contact-link{border-color:#b2945d}
+.eyebrow{letter-spacing:.12em;color:#857044}
+.hero{width:min(1440px,100%);min-height:0;padding:0;gap:0;grid-template-columns:46% 54%;background:#151517;color:white;align-items:stretch}
+.hero-portrait{grid-column:1;grid-row:1;padding:0;margin:0;max-width:none;align-self:stretch;overflow:hidden}
+.portrait-mat{height:100%;padding:0;background:#27292d;box-shadow:none}
+.hero-portrait img{height:100%;min-height:670px;max-height:760px;width:100%;object-fit:cover;object-position:center 31%;filter:saturate(.7)}
+.hero-portrait figcaption,.portrait-side{display:none}
+.hero-copy{grid-column:2;grid-row:1;padding:65px clamp(35px,5vw,84px) 44px;display:flex;flex-direction:column;align-items:flex-start}
+.hero .eyebrow{color:#c6aa74;font-size:12px;letter-spacing:.14em}
+.hero h1{font-size:66px;letter-spacing:.1em;margin:26px 0 4px;font-family:var(--sans);font-weight:300;line-height:1.25}
+.english-name{font:29px/1.3 Georgia,serif;color:#c6aa74;letter-spacing:.02em}
+.hero .position{margin-top:25px;font-size:17px}.hero .position span{color:#bababe;font-size:14px}
+.hero-intro{margin-top:28px;padding-top:25px;border-top:1px solid #3c3c3f;width:100%}
+.hero-intro h2{font:24px/1.7 var(--serif);letter-spacing:.02em}
+.hero-intro p{font-size:15px;color:#bababe;margin-top:12px;line-height:1.9}
+.hero-actions{gap:28px;margin-top:27px}.hero .text-link{color:#eee}
+.hero .button.solid{background:#b5965e;color:#151517;border-color:#b5965e}
+.hero .button.solid:hover{background:#d0b47d}
+.download-links{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;font-size:13px}
+.download-links a{display:inline-flex;align-items:center;gap:9px;border-bottom:1px solid #757579;padding-bottom:5px}
+.download-links a:hover{color:#c6aa74;border-color:#c6aa74}.download-links svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4}
+.hero .memberships{margin-top:30px;color:#d9d9db;font-size:16px;gap:20px}.hero .memberships small{color:#aaaab0}.hero .memberships i{background:#555}
+.memberships .location{display:none!important}
+.recognition{border-top:0;grid-template-columns:150px 1fr 1fr;padding-block:32px;gap:36px}
+.recognition-label .eyebrow{font-size:10px!important}.recognition-label a{font:13px var(--sans);border-bottom:1px solid #b2945d;align-self:flex-start;padding-bottom:4px}
+.award-name{font-size:26px}.award-detail{color:#66666b}
+.section{padding-block:88px}.section-title{font-family:var(--sans);font-weight:400;font-size:33px;letter-spacing:.015em}
+.introduction-copy p{color:#55555b}.practice-grid h3{font-family:var(--sans);font-size:23px}
+.button.solid:hover{background:#333337}.button:hover{transform:none}
+.global-preview,.network-stage{background:#18181b}.global-preview p:not(.eyebrow){color:#bababf}
+.land{fill:#35353a;stroke:#69696f}.network-top,.map-legend,.network-detail{border-color:#45454b}
+.map-legend,.network-top>span,.network-intro,.network-people figcaption>span,.network-record,.network-note{color:#bababf}
+.country-controls button{border-color:#5a5a60;color:#c8c8cc}.hub-label{fill:#ddd}.point-core{background:#aaa}
+.profile-background{background:#f4f4f5}.page-heading{padding-top:55px}.page-heading h1{font:42px/1.45 var(--sans);letter-spacing:.02em;font-weight:400}
+.profile-intro{gap:90px}.profile-intro figure{max-width:390px}.profile-intro figure img{height:500px;filter:saturate(.7)}
+.profile-intro .section-title{font:32px/1.6 var(--sans)}.qualification-row strong{color:#29292e}.profile-intro figcaption{color:#666}
+.series-intro button{background:#f3f3f4;border-left:2px solid #aa884f}.series-intro h2{font-family:var(--sans);font-size:20px}
+.heading-number{font-style:normal;color:#ac8e57}.article-card{min-height:440px;border:1px solid #dcdce0;background:white}
+.article-card:hover{transform:none;box-shadow:none;border-color:#a28a60}
+.article-card h3{font-family:var(--sans);font-size:19px;font-weight:400;line-height:1.7}
+.article-meta{color:#6c6c72}.article-card-bottom{border-color:#e3e3e5}.article-open{color:#80622b}
+.article-preview{height:220px;overflow:hidden;background:#f2f2f3;border-bottom:1px solid #ddd;position:relative;padding:16px 20px 0}
+.preview-sheet{background:#fff;min-height:340px;padding:24px 23px 32px;box-shadow:0 0 0 1px #e4e4e6;will-change:transform}
+.preview-sheet h4{font:18px/1.65 var(--serif);margin:17px 0 14px;overflow-wrap:anywhere}
+.preview-sheet p{font-size:12px;color:#727279;line-height:1.8;margin-bottom:15px}
+.preview-publisher{display:block;font:16px/1.5 Georgia,var(--sans);color:#333;padding-bottom:12px;border-bottom:1px solid #b39969}
+.preview-label{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;gap:8px;background:#f6f6f7ee;backdrop-filter:blur(5px);border-top:1px solid #e2e2e5;padding:7px 13px;font-size:11px;color:#66666c;pointer-events:none}
+.preview-image{padding:0;min-height:0}.preview-image img{width:100%;height:auto}.preview-image .image-context{padding:15px 18px}
+.preview-note{border-top:1px solid #ddd;padding-top:14px;font-size:11px!important}
+.results-line{align-items:flex-start}.results-line span:last-child{max-width:550px;text-align:right}
+.honors-section{scroll-margin-top:30px}.honors-intro{max-width:680px;font-size:15px;color:var(--muted);margin:0 0 30px}
+.honors-wall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #d9d9dc;border-left:1px solid #d9d9dc}
+.honor-card{padding:27px 27px 29px;min-height:240px;border-right:1px solid #d9d9dc;border-bottom:1px solid #d9d9dc;display:flex;flex-direction:column;background:#fff}
+.honor-meta{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:#80704f}
+.honor-publisher{font:25px/1.2 Georgia,var(--serif);letter-spacing:-.02em;margin:26px 0 15px;color:#222;min-height:32px}
+.honor-card h3{font-size:17px;line-height:1.65;font-weight:500}.honor-card p{font-size:13px;line-height:1.8;color:#727277;margin-top:8px}.honor-card a{font-size:12px;border-bottom:1px solid #b2945d;align-self:flex-start;margin-top:18px}
+.honor-card.nomination{background:#f8f8f9}.honor-card.nomination .honor-meta span:last-child{color:#666}
+.recognition-images{border:0;background:#f6f6f7;padding:30px}.editorial-cta h2{font-family:var(--sans);font-size:26px}
+.site-footer{background:#f4f4f5;border-color:#d9d9dd}.footer-bottom{border-color:#d9d9dd}.footer-top h2{font-family:var(--sans);font-size:30px}.source-dialog::backdrop{background:#11111688}
+@media(min-width:1450px){.hero{margin-top:12px}.hero-portrait img{height:730px;min-height:730px}}
+@media(max-width:1100px){.hero{grid-template-columns:44% 56%}.hero-copy{padding:44px 35px 36px}.hero h1{font-size:56px}.hero-portrait img{min-height:680px}.recognition{grid-template-columns:130px 1fr 1fr;gap:22px}.profile-intro{gap:55px}.honor-card{padding:23px}.honor-publisher{font-size:23px}}
+@media(max-width:780px){.site-header{height:80px}.nav{top:80px;background:#fff}.hero{grid-template-columns:1fr;width:100%;gap:0}.hero-portrait{grid-column:1;grid-row:1;height:440px}.hero-portrait img{height:100%;min-height:0;max-height:none;object-position:center 22%}.hero-copy{grid-column:1;grid-row:2;padding:35px 26px 38px}.hero h1{font-size:49px;margin-top:20px}.english-name{font-size:26px}.hero-intro{margin-top:22px}.hero-intro h2{font-size:23px}.hero .memberships{margin-top:28px}.hero-actions{gap:25px}.recognition{grid-template-columns:1fr;padding-block:27px}.recognition-label{justify-content:space-between}.recognition-label .eyebrow{display:none}.recognition> :nth-child(2){padding-bottom:23px}.section{padding-block:56px}.section-title{font-size:28px}.page-heading h1{font-size:31px}.page-heading{padding-top:36px}.profile-intro{gap:30px}.profile-intro figure{max-width:none}.profile-intro figure img{height:470px}.profile-intro .section-title{font-size:28px}.honors-wall{grid-template-columns:1fr}.honor-card{min-height:0;padding:25px}.honor-publisher{margin-top:20px;font-size:27px}.honor-card h3{font-size:18px}.article-preview{height:235px}.article-card{min-height:430px}.results-line{display:block;line-height:1.8}.results-line span{display:block}.results-line span:last-child{max-width:none;text-align:left;margin-top:6px}.download-links{gap:20px}.recognition-images{gap:20px;padding:20px}.footer-top h2{font-size:27px}}
+@media(prefers-reduced-motion:reduce){.preview-sheet{will-change:auto}}
+@media print{.download-links,.preview-label{display:none}.honors-wall{grid-template-columns:repeat(2,minmax(0,1fr))}.honor-card{break-inside:avoid;min-height:180px}.honors-section{padding-top:20px}.hero{color:#171719;background:white}.hero-copy{padding:20px}.hero-portrait img{min-height:0;height:500px}}
