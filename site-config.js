@@ -16,7 +16,7 @@ export const languages = [
   {id: 'en', label: 'English', prefix: '/en', available: false},
 ];
 export const routes = {
-  home: '/', profile: '/profile/', practice: '/practice/',
+  home: '/', profile: '/profile/', team: '/team/', practice: '/practice/',
   publications: '/publications/', global: '/global/',
 };
 export function localizedPath(page, language = 'zh-CN') {

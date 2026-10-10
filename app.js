@@ -76,7 +76,7 @@ const revealObserver = new IntersectionObserver(entries => {
 export function reveal() {
   revealObserver.disconnect();
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.querySelectorAll('.section-heading,.introduction>div,.practice-grid>a,.article-card').forEach(element => {
+  document.querySelectorAll('.section-heading,.introduction>div,.practice-grid>a,.article-card,.team-card,.member-profile').forEach(element => {
     if (!element.classList.contains('reveal')) {
       element.classList.add('reveal');
       if (element.getBoundingClientRect().top > innerHeight) element.classList.add('pending');

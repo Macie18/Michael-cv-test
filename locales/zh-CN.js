@@ -1,7 +1,7 @@
 // Interface copy is separate from shared asset paths and publication identifiers.
 export default {
   nav: {
-    home: '首页', profile: '个人履历', practice: '专业领域',
+    home: '首页', profile: '个人履历', team: '团队成员', practice: '专业领域',
     publications: '文章作品集', global: '跨境网络',
     menu: '菜单', contact: '联系', label: '主导航',
   },
