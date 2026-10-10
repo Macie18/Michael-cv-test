@@ -52,8 +52,8 @@
 .team-card{min-width:0;border-right:1px solid #d9d9dc;border-bottom:1px solid #d9d9dc;background:#fff}
 .team-card-link{display:block;height:100%}
 .team-portrait{position:relative;aspect-ratio:3/4;overflow:hidden;background:#ededee;border-bottom:1px solid #d9d9dc}
-.team-portrait img{position:absolute;left:0;top:0;max-width:none;height:auto;filter:grayscale(1) contrast(.96);transform-origin:top left;transition:filter .5s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
-.team-card:hover .team-portrait img,.team-card-link:focus-visible .team-portrait img{filter:grayscale(.35) contrast(.98)}
+.team-portrait img{position:absolute;left:0;top:0;max-width:none;height:auto;filter:saturate(.9) contrast(.98);transform-origin:top left;transition:filter .5s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.team-card:hover .team-portrait img,.team-card-link:focus-visible .team-portrait img{filter:saturate(1) contrast(1)}
 .team-portrait-hua img{width:904%;transform:translate(-5.625%,-11.667%)}
 .team-portrait-ni img{width:755%;transform:translate(-4.688%,-10%)}
 .team-portrait-zhu img{width:741%;transform:translate(-5.375%,-10.444%)}
