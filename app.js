@@ -93,6 +93,11 @@ export function toast(message) {
   document.body.append(element);
   setTimeout(() => element.remove(), 2600);
 }
+document.addEventListener('click',async event=>{
+  const button=event.target.closest('[data-copy-phone]');if(!button)return;
+  try{await navigator.clipboard.writeText(button.dataset.copyPhone);toast('电话 / 微信号码已复制');}
+  catch{toast('浏览器未允许自动复制，可长按或选中号码。');}
+});
 reveal();
 document.querySelector('.print-profile')?.addEventListener('click', () => window.print());
 if (page === 'home' || page === 'publications') import('./publications.js');

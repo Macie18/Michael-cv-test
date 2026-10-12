@@ -12,12 +12,27 @@ async function init(){const interactive=document.body.dataset.page==='global';co
  if(interactive){document.querySelector('#country-controls').innerHTML=places.map(p=>`<button data-country="${p.id}" aria-pressed="false" aria-controls="network-detail">${p.name}</button>`).join('');}
  try{const response=await fetch(sitePath('/Assets/maps/ne-110m-land.geojson'));if(!response.ok)throw new Error('map');host.innerHTML=mapMarkup(await response.json(),places,interactive)+(!interactive?'<p class="map-caption">SHANGHAI & THE WORLD</p>':'');}catch{host.innerHTML='<p class="map-fallback">上海 · 连接英国、加拿大、新加坡、澳大利亚与阿联酋的专业交流。<br>地图暂时不可用，可通过下方法域选项浏览。</p>';}
  if(!interactive)return;
- const panel=document.querySelector('#network-detail');let active;
+ const panel=document.querySelector('#network-detail');const stage=document.querySelector('.network-stage');let active;let rotationTimer;
  function select(id,updateUrl=true){const p=places.find(p=>p.id===id)||places[0];if(active===p.id)return;active=p.id;document.querySelectorAll('[data-country]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.country===active)));host.querySelectorAll('[data-route]').forEach(route=>route.classList.toggle('visible',route.dataset.route===active));panel.innerHTML=`<p class="eyebrow">${esc(p.english)}</p><h2>${esc(p.name)}<span>${esc(p.city)}</span></h2><p class="network-intro">${esc(p.intro)}</p><div class="network-people">${p.people.map(person=>`<figure><img src="${sitePath('/Assets/network/')}${esc(person.image)}" alt="${esc(person.name)}相关专业交流资料" width="200" height="120"><figcaption><strong>${esc(person.name)}</strong><span>${esc(person.firm)}</span></figcaption></figure>`).join('')}</div><p class="network-record">${esc(p.note)}</p>`;
+ panel.querySelectorAll('.network-people img').forEach(image=>{image.tabIndex=0;image.setAttribute('role','button');image.setAttribute('aria-label',`${image.alt}，点击查看完整图片`);});
  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){panel.getAnimations().forEach(a=>a.cancel());panel.animate([{opacity:.25,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:400,easing:'cubic-bezier(.2,.75,.25,1)'});}
  if(updateUrl)history.replaceState(null,'',`${location.pathname}?region=${active}`);
  }
- document.querySelector('.network-stage').addEventListener('click',e=>{const b=e.target.closest('[data-country]');if(b)select(b.dataset.country);});
- select(new URLSearchParams(location.search).get('region')||'uk',false);
+ const lightboxRoot=document.querySelector('#dialog-root');
+ lightboxRoot.innerHTML='<dialog class="network-lightbox" aria-label="查看完整图片"><button class="network-lightbox-close" aria-label="关闭完整图片">×</button><img alt=""><p></p></dialog>';
+ const lightbox=lightboxRoot.querySelector('dialog');
+ function showImage(image){lightbox.querySelector('img').src=image.currentSrc||image.src;lightbox.querySelector('img').alt=image.alt;lightbox.querySelector('p').textContent=image.alt;lightbox.showModal();}
+ lightbox.querySelector('.network-lightbox-close').addEventListener('click',()=>lightbox.close());
+ lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close();});
+ document.querySelectorAll('.event-grid img').forEach(image=>{image.dataset.zoomable='true';image.tabIndex=0;image.setAttribute('role','button');image.setAttribute('aria-label',`${image.alt}，点击查看完整图片`);});
+ function stopRotation(){clearTimeout(rotationTimer);rotationTimer=undefined;}
+ function scheduleRotation(){stopRotation();if(matchMedia('(prefers-reduced-motion: reduce)').matches||document.hidden)return;rotationTimer=setTimeout(()=>{const index=places.findIndex(place=>place.id===active);select(places[(index+1)%places.length].id,false);scheduleRotation();},7000);}
+ stage.addEventListener('click',event=>{const button=event.target.closest('[data-country]');if(button){select(button.dataset.country);scheduleRotation();return;}const image=event.target.closest('.network-people img');if(image)showImage(image);});
+ stage.addEventListener('keydown',event=>{const image=event.target.closest('.network-people img');if(image&&(event.key==='Enter'||event.key===' ')){event.preventDefault();showImage(image);}});
+ stage.addEventListener('pointerenter',stopRotation);stage.addEventListener('pointerleave',scheduleRotation);stage.addEventListener('focusin',stopRotation);stage.addEventListener('focusout',event=>{if(!stage.contains(event.relatedTarget))scheduleRotation();});
+ document.querySelector('.event-grid')?.addEventListener('click',event=>{const image=event.target.closest('img[data-zoomable]');if(image)showImage(image);});
+ document.querySelector('.event-grid')?.addEventListener('keydown',event=>{const image=event.target.closest('img[data-zoomable]');if(image&&(event.key==='Enter'||event.key===' ')){event.preventDefault();showImage(image);}});
+ document.addEventListener('visibilitychange',()=>document.hidden?stopRotation():scheduleRotation());
+ select(new URLSearchParams(location.search).get('region')||'uk',false);scheduleRotation();
 }
 init();
