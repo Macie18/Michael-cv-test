@@ -24,9 +24,9 @@ const navigation = Object.keys(routes).map(id =>
 ).join('');
 document.querySelector('#site-header').innerHTML = `
   <header class="site-header wrap">
-    <a class="brand" href="${pagePath('home')}" aria-label="${esc(site.name)} ${ui.nav.home}">
+    <a class="brand" href="${pagePath('home')}" aria-label="${esc(ui.brand.name)} · ${ui.nav.home}">
       <span class="brand-mark" aria-hidden="true">M</span>
-      <span class="brand-name">${esc(site.name)}<small>${site.romanizedName}</small></span>
+      <span class="brand-name">${esc(ui.brand.name)}<small>${esc(ui.brand.subtitle)}</small></span>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">${ui.nav.menu} <span aria-hidden="true">☰</span></button>
     <nav class="nav" id="main-nav" aria-label="${ui.nav.label}">
@@ -95,8 +95,8 @@ export function toast(message) {
 }
 document.addEventListener('click',async event=>{
   const button=event.target.closest('[data-copy-phone]');if(!button)return;
-  try{await navigator.clipboard.writeText(button.dataset.copyPhone);toast('电话 / 微信号码已复制');}
-  catch{toast('浏览器未允许自动复制，可长按或选中号码。');}
+  try{await navigator.clipboard.writeText(button.dataset.copyPhone);toast(ui.common.phoneCopied);}
+  catch{toast(ui.common.copyFailed);}
 });
 reveal();
 document.querySelector('.print-profile')?.addEventListener('click', () => window.print());

@@ -6,6 +6,13 @@
 .brand-name{font-family:var(--sans);letter-spacing:.08em;font-weight:500}
 .brand-name small{font-family:Georgia,serif;font-weight:400}
 .nav{gap:30px}.nav .contact-link{border-color:#b2945d}
+html:lang(en) .brand-name{letter-spacing:.035em}
+html:lang(en) .nav{gap:24px;font-size:13px}
+html:lang(en) .hero h1{letter-spacing:.025em}
+html:lang(en) .hero-intro h2{line-height:1.48;letter-spacing:0}
+html:lang(en) .page-heading h1,html:lang(en) .section-title{letter-spacing:0}
+html:lang(en) .member-title h2{letter-spacing:0}
+html:lang(en) .member-title h2 span{font-family:var(--sans);letter-spacing:.08em}
 .eyebrow{letter-spacing:.12em;color:#857044}
 .hero{width:min(1440px,100%);min-height:0;padding:0;gap:0;grid-template-columns:46% 54%;background:#151517;color:white;align-items:stretch}
 .hero-portrait{grid-column:1;grid-row:1;padding:0;margin:0;max-width:none;align-self:stretch;overflow:hidden}

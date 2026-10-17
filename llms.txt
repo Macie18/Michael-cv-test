@@ -1,0 +1,24 @@
+# Naidong Ma / 马乃东
+
+> Bilingual professional website for Naidong (Michael) Ma, Senior Partner at Dacheng Law Offices, Shanghai. The site covers family and matrimonial disputes, succession and corporate-control disputes, private wealth planning, cross-border legal coordination, professional recognition and publications.
+
+Canonical website: https://naidongma.com/
+English website: https://naidongma.com/en/
+Official Dacheng profile: https://shanghai.dacheng.com/lawyer_1/145.html
+
+## Core pages
+
+- Chinese profile: https://naidongma.com/profile/
+- English profile: https://naidongma.com/en/profile/
+- Chinese practice experience: https://naidongma.com/practice/
+- English practice experience: https://naidongma.com/en/practice/
+- Chinese publications: https://naidongma.com/publications/
+- English publications: https://naidongma.com/en/publications/
+- Chinese professional network: https://naidongma.com/global/
+- English professional network: https://naidongma.com/en/global/
+
+## Important context
+
+- The practice pages describe anonymised prior experience. Prior experience does not guarantee the outcome of any other matter.
+- Website materials are for professional exchange and do not constitute legal advice on any specific matter.
+- Rankings and professional recognition should be checked against the linked publisher or official firm profile when current status matters.
