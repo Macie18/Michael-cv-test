@@ -1,0 +1,25 @@
+{
+  "Version": "1",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "acs:ram::${ALIYUN_ACCOUNT_ID}:oidc-provider/GitHubActionsNaidongma"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "oidc:iss": [
+            "https://token.actions.githubusercontent.com"
+          ],
+          "oidc:aud": [
+            "sts.aliyuncs.com"
+          ],
+          "oidc:sub": [
+            "repo:macie18/Michael-cv-test:ref:refs/heads/main"
+          ]
+        }
+      }
+    }
+  ]
+}

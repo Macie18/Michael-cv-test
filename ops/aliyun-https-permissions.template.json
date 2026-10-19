@@ -1,0 +1,26 @@
+{
+  "Version": "1",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "alidns:AddDomainRecord",
+        "alidns:DeleteDomainRecord"
+      ],
+      "Resource": [
+        "acs:alidns:*:${ALIYUN_ACCOUNT_ID}:domain/naidongma.com"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cdn:DescribeDomainCertificateInfo",
+        "cdn:SetCdnDomainSSLCertificate"
+      ],
+      "Resource": [
+        "acs:cdn:*:${ALIYUN_ACCOUNT_ID}:domain/naidongma.com",
+        "acs:cdn:*:${ALIYUN_ACCOUNT_ID}:domain/www.naidongma.com"
+      ]
+    }
+  ]
+}

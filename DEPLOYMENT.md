@@ -42,6 +42,8 @@
 3. 等待 DNS 生效后，在 CDN 的 HTTPS 配置中部署证书并启用强制 HTTPS。
 4. 缓存建议：HTML/JSON/XML/TXT 为短缓存或不缓存；带版本管理的 CSS、JS、图片可设较长缓存。首次上线先使用短缓存，验证后再延长。
 
+自动续签与最小权限配置见 [`ops/HTTPS-AUTOMATION.md`](ops/HTTPS-AUTOMATION.md)。该方案使用 GitHub OIDC 和阿里云 STS 临时凭证，不在仓库中保存长期 AccessKey 或证书私钥。
+
 ## 上线验收
 
 逐项检查：

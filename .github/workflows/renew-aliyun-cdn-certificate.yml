@@ -1,0 +1,202 @@
+name: Renew Alibaba Cloud CDN certificate
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Renew even when the current certificate has more than 35 days left
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    - cron: "17 3 * * 1"
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: naidongma-cdn-certificate
+  cancel-in-progress: false
+
+jobs:
+  renew:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PRIMARY_DOMAIN: naidongma.com
+      CERTIFICATE_DOMAINS: naidongma.com,www.naidongma.com
+      CDN_DOMAINS: ${{ vars.ALIYUN_CDN_DOMAINS || 'naidongma.com' }}
+      ACME_EMAIL: ${{ vars.ACME_EMAIL }}
+      ALIYUN_OIDC_PROVIDER_ARN: ${{ vars.ALIYUN_OIDC_PROVIDER_ARN }}
+      ALIYUN_ROLE_ARN: ${{ vars.ALIYUN_ROLE_ARN }}
+      FORCE_RENEWAL: ${{ github.event_name == 'workflow_dispatch' && inputs.force || false }}
+    steps:
+      - name: Check out the site repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Validate repository variables
+        shell: bash
+        run: |
+          set -euo pipefail
+          for variable in ACME_EMAIL ALIYUN_OIDC_PROVIDER_ARN ALIYUN_ROLE_ARN; do
+            if [[ -z "${!variable:-}" ]]; then
+              echo "Missing required repository variable: $variable" >&2
+              exit 1
+            fi
+          done
+          if [[ "$ACME_EMAIL" != *@* ]]; then
+            echo "ACME_EMAIL does not look like an email address" >&2
+            exit 1
+          fi
+
+      - name: Obtain short-lived Alibaba Cloud credentials
+        uses: aliyun/configure-aliyun-credentials-action@1e5248c8d5d93a8781ac344a68e19a43341e79e6 # v1
+        with:
+          role-to-assume: ${{ env.ALIYUN_ROLE_ARN }}
+          oidc-provider-arn: ${{ env.ALIYUN_OIDC_PROVIDER_ARN }}
+          role-session-name: naidongma-https-renewal
+          role-session-expiration: 1800
+          audience: sts.aliyuncs.com
+
+      - name: Install Alibaba Cloud CLI
+        uses: aliyun/setup-aliyun-cli-action@09a5f86915bb556e27bf050e9a5e339aeb073df5 # v1
+        with:
+          version: 3.5.1
+
+      - name: Check whether renewal is needed
+        id: renewal
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$FORCE_RENEWAL" == "true" ]]; then
+            echo "renew=true" >> "$GITHUB_OUTPUT"
+            echo "Manual run requested forced renewal"
+            exit 0
+          fi
+
+          set +e
+          certificate_json="$(aliyun cdn describe-domain-certificate-info \
+            --domain-name "$PRIMARY_DOMAIN" \
+            --region cn-hangzhou 2>"$RUNNER_TEMP/certificate-query-error.log")"
+          query_status=$?
+          set -e
+
+          if (( query_status != 0 )); then
+            echo "Unable to query the CDN certificate; stopping to avoid unnecessary certificate issuance. Check the role permissions and CDN status." >&2
+            exit 1
+          fi
+
+          expiry="$(jq -r '.CertInfos.CertInfo[0].CertExpireTime // empty' <<<"$certificate_json")"
+          status="$(jq -r '.CertInfos.CertInfo[0].ServerCertificateStatus // "off"' <<<"$certificate_json")"
+          if [[ "$status" != "on" || -z "$expiry" ]]; then
+            echo "HTTPS is not active; certificate issuance is required"
+            echo "renew=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          now_epoch="$(date -u +%s)"
+          expiry_epoch="$(date -u -d "$expiry" +%s)"
+          days_left="$(( (expiry_epoch - now_epoch) / 86400 ))"
+          echo "The current certificate has approximately ${days_left} days remaining"
+          if (( days_left <= 35 )); then
+            echo "renew=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "renew=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install pinned lego ACME client
+        if: steps.renewal.outputs.renew == 'true'
+        shell: bash
+        env:
+          LEGO_VERSION: 5.5.2
+          LEGO_SHA256: 2a35505089e7772c92e1e9ac144df91151ef2eca8568630db0ff91fca06d9bef
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/lego.tar.gz"
+          install_dir="$RUNNER_TEMP/lego-bin"
+          curl --fail --silent --show-error --location \
+            "https://github.com/go-acme/lego/releases/download/v${LEGO_VERSION}/lego_v${LEGO_VERSION}_linux_amd64.tar.gz" \
+            --output "$archive"
+          printf '%s  %s\n' "$LEGO_SHA256" "$archive" | sha256sum --check --strict
+          mkdir -p "$install_dir"
+          tar -xzf "$archive" -C "$install_dir" lego
+          echo "$install_dir" >> "$GITHUB_PATH"
+
+      - name: Request a Let's Encrypt certificate
+        if: steps.renewal.outputs.renew == 'true'
+        shell: bash
+        env:
+          EXEC_PATH: ${{ github.workspace }}/scripts/aliyun-dns-hook.sh
+          EXEC_POLLING_INTERVAL: 10
+          EXEC_PROPAGATION_TIMEOUT: 600
+          EXEC_SEQUENCE_INTERVAL: 10
+        run: |
+          set -euo pipefail
+          chmod +x "$EXEC_PATH"
+          IFS=',' read -r -a domains <<< "$CERTIFICATE_DOMAINS"
+          domain_args=()
+          for domain in "${domains[@]}"; do
+            domain_args+=(--domains "$domain")
+          done
+          lego \
+            --accept-tos \
+            --email "$ACME_EMAIL" \
+            --key-type rsa2048 \
+            --path "$RUNNER_TEMP/lego" \
+            --dns exec \
+            "${domain_args[@]}" \
+            run
+
+      - name: Verify the issued certificate
+        if: steps.renewal.outputs.renew == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          certificate="$RUNNER_TEMP/lego/certificates/${PRIMARY_DOMAIN}.crt"
+          private_key="$RUNNER_TEMP/lego/certificates/${PRIMARY_DOMAIN}.key"
+          test -s "$certificate"
+          test -s "$private_key"
+          openssl x509 -in "$certificate" -noout -checkend 2592000
+          openssl x509 -in "$certificate" -noout -issuer -subject -dates -ext subjectAltName
+          cert_public_key="$(openssl x509 -in "$certificate" -pubkey -noout | openssl sha256)"
+          key_public_key="$(openssl pkey -in "$private_key" -pubout | openssl sha256)"
+          [[ "$cert_public_key" == "$key_public_key" ]]
+
+      - name: Deploy the certificate to Alibaba Cloud CDN
+        if: steps.renewal.outputs.renew == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          certificate="$RUNNER_TEMP/lego/certificates/${PRIMARY_DOMAIN}.crt"
+          private_key="$RUNNER_TEMP/lego/certificates/${PRIMARY_DOMAIN}.key"
+          certificate_name="naidongma-letsencrypt-$(date -u +%Y%m%d-%H%M%S)"
+          ssl_public="$(<"$certificate")"
+          ssl_private="$(<"$private_key")"
+
+          IFS=',' read -r -a cdn_domains <<< "$CDN_DOMAINS"
+          for domain in "${cdn_domains[@]}"; do
+            aliyun cdn set-cdn-domain-ssl-certificate \
+              --domain-name "$domain" \
+              --cert-name "$certificate_name" \
+              --cert-type upload \
+              --ssl-protocol on \
+              --ssl-pub "$ssl_public" \
+              --ssl-pri "$ssl_private" \
+              --region cn-hangzhou >/dev/null
+            echo "Deployed the renewed certificate to $domain"
+          done
+
+      - name: Verify HTTPS endpoints
+        if: steps.renewal.outputs.renew == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          IFS=',' read -r -a cdn_domains <<< "$CDN_DOMAINS"
+          for domain in "${cdn_domains[@]}"; do
+            curl --fail --silent --show-error --head \
+              --connect-timeout 10 --max-time 30 \
+              --retry 12 --retry-delay 10 --retry-all-errors \
+              "https://${domain}/" >/dev/null
+            echo "HTTPS is responding for $domain"
+          done
