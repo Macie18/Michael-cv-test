@@ -1,6 +1,6 @@
-import zhCN from './locales/zh-CN.js';
-import en from './locales/en.js';
-import {languages, localizedPath} from './site-config.js';
+import zhCN from './locales/zh-CN.js?v=6c47ece14ac5';
+import en from './locales/en.js?v=6c47ece14ac5';
+import {languages, localizedPath} from './site-config.js?v=6c47ece14ac5';
 const dictionaries = {'zh-CN': zhCN, en};
 const requestedLanguage = document.documentElement.lang || 'zh-CN';
 export const locale = languages.find(item => item.id === requestedLanguage && item.available);

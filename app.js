@@ -1,9 +1,7 @@
-import {site, languages, localizedPath, routes} from './site-config.js';
-import {ui, locale, pagePath} from './i18n.js';
-
-export const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-}[char]));
+import {site, languages, localizedPath, routes} from './site-config.js?v=6c47ece14ac5';
+import {ui, locale, pagePath} from './i18n.js?v=6c47ece14ac5';
+import {esc,reveal} from './core.js?v=6c47ece14ac5';
+export {esc,reveal} from './core.js?v=6c47ece14ac5';
 
 const page = document.body.dataset.page;
 if (!document.querySelector('link[rel="icon"]')) {
@@ -67,24 +65,6 @@ document.addEventListener('keydown', event => {
 });
 document.querySelector('.contact-link').addEventListener('click', closeMenu);
 
-const revealObserver = new IntersectionObserver(entries => {
-  for (const entry of entries) {
-    if (!entry.isIntersecting) continue;
-    entry.target.classList.remove('pending');
-    revealObserver.unobserve(entry.target);
-  }
-}, {threshold: .04});
-export function reveal() {
-  revealObserver.disconnect();
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.querySelectorAll('.section-heading,.introduction>div,.practice-grid>a,.article-card,.team-card,.member-profile').forEach(element => {
-    if (!element.classList.contains('reveal')) {
-      element.classList.add('reveal');
-      if (element.getBoundingClientRect().top > innerHeight) element.classList.add('pending');
-    }
-    if (element.classList.contains('pending')) revealObserver.observe(element);
-  });
-}
 export function toast(message) {
   document.querySelector('.toast')?.remove();
   const element = document.createElement('div');
@@ -101,6 +81,3 @@ document.addEventListener('click',async event=>{
 });
 reveal();
 document.querySelector('.print-profile')?.addEventListener('click', () => window.print());
-if ((page === 'publications' && document.querySelector('#article-results')) || (page === 'home' && document.querySelector('#featured-articles'))) import('./publications.js');
-if (page === 'home' || page === 'global') import('./global.js');
-if (page === 'profile') import('./honors.js');

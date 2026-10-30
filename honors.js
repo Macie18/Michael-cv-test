@@ -1,5 +1,5 @@
-import {esc} from './app.js';
-import {sitePath} from './site-config.js';
+import {esc} from './core.js?v=6c47ece14ac5';
+import {sitePath} from './site-config.js?v=6c47ece14ac5';
 
 const wall = document.querySelector('#honors-wall');
 try {

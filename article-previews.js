@@ -1,4 +1,4 @@
-import {esc} from './app.js';
+import {esc} from './core.js?v=6c47ece14ac5';
 
 // Only verified, article-specific covers. Never substitute a webpage screenshot,
 // a publisher's site banner, or a made-up image for an unavailable original cover.

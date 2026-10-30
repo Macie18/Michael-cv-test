@@ -1,0 +1,13 @@
+import {esc} from './core.js?v=6c47ece14ac5';
+import {sitePath} from './site-config.js?v=6c47ece14ac5';
+export const hub=[121.47,31.23];
+export const project=([lon,lat])=>[(lon+180)/360*1000,(85-lat)/145*440];
+const [hx,hy]=project(hub);
+function landPaths(geo){return geo.features.flatMap(f=>f.geometry.type==='Polygon'?[f.geometry.coordinates]:f.geometry.coordinates).map(p=>p.map(r=>r.map((c,i)=>{const [x,y]=project(c);return `${i?'L':'M'}${x.toFixed(1)},${y.toFixed(1)}`;}).join('')+'Z').join('')).join('');}
+function arc(coordinates){const [x,y]=project(coordinates);return `M${hx},${hy} Q${(hx+x)/2},${Math.min(hy,y)-Math.min(Math.abs(hx-x)*.23,100)} ${x},${y}`;}
+export function mapMarkup(geo,places,interactive,english=false){
+  return `<svg viewBox="0 0 1000 440" aria-hidden="true" focusable="false"><defs><clipPath id="${interactive?'large':'small'}-map-clip"><rect width="1000" height="440"/></clipPath></defs><g clip-path="url(#${interactive?'large':'small'}-map-clip)"><path class="land" d="${landPaths(geo)}"/>${places.map(p=>`<path class="map-route ${interactive?(p.id==='uk'?'visible':''):'visible'}" data-route="${esc(p.id)}" d="${arc(p.coordinates)}" pathLength="1"/>`).join('')}<circle class="hub-halo" cx="${hx}" cy="${hy}" r="12"/><circle class="hub-dot" cx="${hx}" cy="${hy}" r="4"/>${!interactive?places.map(p=>{const [x,y]=project(p.coordinates);return `<circle class="static-dot" cx="${x}" cy="${y}" r="4"/>`;}).join(''):''}<text class="hub-label" x="${hx+16}" y="${hy-9}">${english?'Shanghai':'上海'}</text></g></svg>${interactive?places.map(p=>{const [x,y]=project(p.coordinates);return `<button class="map-point" style="left:${x/10}%;top:${y/4.4}%" data-country="${esc(p.id)}" aria-label="${esc(p.name)}: ${english?'view professional connections':'查看专业联络'}" aria-pressed="${p.id==='uk'}" aria-controls="network-detail"><span class="point-core"></span><span class="point-label">${esc(p.name)}</span></button>`;}).join(''):`<p class="map-caption">SHANGHAI & THE WORLD</p>`}`;
+}
+export function detailMarkup(place,english=false){
+ return `<p class="eyebrow">${esc(place.english)}</p><h2>${esc(place.name)}<span>${esc(place.city)}</span></h2><p class="network-intro">${esc(place.intro)}</p><div class="network-people">${place.people.map(person=>`<figure><img src="${sitePath('/Assets/network/')}${esc(person.image)}" alt="${esc(person.name)} ${english?'professional exchange':'专业交流资料'}" width="200" height="120"><figcaption><strong>${esc(person.name)}</strong><span>${esc(person.firm)}</span></figcaption></figure>`).join('')}</div><p class="network-record">${esc(place.note)}</p>`;
+}

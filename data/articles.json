@@ -40,7 +40,8 @@
       "马乃东",
       "倪浩林"
     ],
-    "sourceUrl": "https://mp.weixin.qq.com/s/w3sElc3WgDLOgQEV_Foqcg"
+    "sourceUrl": "https://mp.weixin.qq.com/s/w3sElc3WgDLOgQEV_Foqcg",
+    "editionLabel": ""
   },
   {
     "id": "article-43cea77e29",
@@ -86,7 +87,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/43cea77e29/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjU5MzU%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-b8c1fb9656",
@@ -143,7 +150,13 @@
         "label": "大成公开发表版本（2023）",
         "url": "https://dacheng.com/Content/2023/12-04/0000002628.html"
       }
-    ]
+    ],
+    "localUrl": "/publications/b8c1fb9656/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjU5MzY%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-a74472e8a6",
@@ -193,7 +206,13 @@
     "linkSource": "大成律师事务所",
     "linkDate": "2023-08-18",
     "linkVersion": "原发表版本",
-    "verifiedOn": "2026-10-09"
+    "verifiedOn": "2026-10-09",
+    "localUrl": "/publications/a74472e8a6/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjU5MzQ%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-2f8b0234d8",
@@ -241,7 +260,13 @@
     "source": "律商视点",
     "category": "family",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/2f8b0234d8/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjU5Mzc%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-4e5f15c3c0",
@@ -279,7 +304,13 @@
     "source": "威科先行",
     "category": "family",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/4e5f15c3c0/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjU5Mzg%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-36f6802f9e",
@@ -325,7 +356,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/36f6802f9e/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjE3MDM%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-7efb232cf7",
@@ -371,7 +408,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/7efb232cf7/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjE3MDQ%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-784caa1a72",
@@ -417,7 +460,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/784caa1a72/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjE3MDI%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-2222ffab75",
@@ -463,7 +512,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/2222ffab75/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjE2OTk%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-7117258e7d",
@@ -509,7 +564,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/7117258e7d/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDI3MjE3MDE%3D",
+    "editionLabel": "2026 更新版"
   },
   {
     "id": "article-1d77f2ed59",
@@ -547,7 +608,13 @@
     "source": "大成律师事务所",
     "category": "family",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/1d77f2ed59/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDIzMTAxMzA%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-cd4d4ccec0",
@@ -593,7 +660,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/cd4d4ccec0/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDE2MTgxMzY%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-7cda495fa9",
@@ -639,7 +712,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/7cda495fa9/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDExNjcwODM%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-8d809f77c9",
@@ -676,7 +755,13 @@
     "source": "律商视点",
     "category": "cross",
     "series": "跨境继承",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/8d809f77c9/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://www.163.com/dy/article/JPD9AJT90538RSZB.html",
+    "editionLabel": ""
   },
   {
     "id": "article-01510b19eb",
@@ -714,7 +799,13 @@
     "source": "大成律师事务所",
     "category": "family",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/01510b19eb/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAzMTUwMjk%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-8c650f94c1",
@@ -832,7 +923,13 @@
     "linkSource": "大成律师事务所",
     "linkDate": "2024-10-29",
     "linkVersion": "公开发表版本",
-    "verifiedOn": "2026-10-09"
+    "verifiedOn": "2026-10-09",
+    "localUrl": "/publications/d515e7c35b/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://www.dacheng.com/Content/2024/10-29/0000009854.html",
+    "editionLabel": ""
   },
   {
     "id": "article-b83cc838ee",
@@ -878,7 +975,8 @@
     "authors": [
       "马乃东"
     ],
-    "sourceUrl": "https://www.dacheng.com/Content/2024/10-11/0000001081.html"
+    "sourceUrl": "https://www.dacheng.com/Content/2024/10-11/0000001081.html",
+    "editionLabel": ""
   },
   {
     "id": "article-29f3f3e74f",
@@ -906,7 +1004,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/29f3f3e74f/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://www.sohu.com/a/799638596_120942243",
+    "editionLabel": ""
   },
   {
     "id": "article-1c1aef354d",
@@ -946,7 +1050,13 @@
     "source": "威科先行",
     "category": "litigation",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/1c1aef354d/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAyNjMxNDk%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-4f455590d1",
@@ -1023,7 +1133,13 @@
     "source": "威科先行",
     "category": "litigation",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/185ef87c22/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAyNjQ5MTU%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-dbe83c7ed6",
@@ -1093,7 +1209,13 @@
     "linkSource": "大成律师事务所",
     "linkDate": "2023-12-07",
     "linkVersion": "公开发表版本",
-    "verifiedOn": "2026-10-09"
+    "verifiedOn": "2026-10-09",
+    "localUrl": "/publications/0f2572e481/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://dacheng.com/Content/2023/12-07/0000000126.html",
+    "editionLabel": ""
   },
   {
     "id": "article-10a85ab135",
@@ -1151,7 +1273,13 @@
     "source": "威科先行",
     "category": "family",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/512ba00f50/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAyMTU0MDk%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-3e45ffb3d1",
@@ -1192,7 +1320,13 @@
     "linkSource": "大成律师事务所",
     "linkDate": "2023-05-16",
     "linkVersion": "公开发表版本",
-    "verifiedOn": "2026-10-09"
+    "verifiedOn": "2026-10-09",
+    "localUrl": "/publications/3e45ffb3d1/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://www.dacheng.com/Content/2023/05-16/0000004469.html",
+    "editionLabel": ""
   },
   {
     "id": "article-977fe92f73",
@@ -1229,7 +1363,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/977fe92f73/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAyMTI0ODg%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-65d056c99c",
@@ -1266,7 +1406,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/65d056c99c/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAxNzgzMjc%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-f7f70db1e0",
@@ -1303,7 +1449,13 @@
     "source": "威科先行",
     "category": "equity",
     "series": "股权继承诉讼法律风险",
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/f7f70db1e0/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAxNzU1OTE%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-ab78d1e54b",
@@ -1370,7 +1522,13 @@
     "source": "威科先行",
     "category": "cross",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/0e0387e356/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAwNTU2MTI%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-b44f7eca39",
@@ -1476,7 +1634,13 @@
     "linkSource": "Hubbis",
     "linkDate": "2019-01-23",
     "linkVersion": "公开发表版本",
-    "verifiedOn": "2026-10-09"
+    "verifiedOn": "2026-10-09",
+    "localUrl": "/publications/83b408415b/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://hubbis.com/article/commentary-on-implementation-of-new-individual-income-tax-law-regulation-in-china",
+    "editionLabel": ""
   },
   {
     "id": "article-02cdcf9e6b",
@@ -1504,7 +1668,13 @@
     "source": "威科先行",
     "category": "tax",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/02cdcf9e6b/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAwNDgwNjM%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-d504a4cf54",
@@ -1532,7 +1702,13 @@
     "source": "威科先行",
     "category": "tax",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/d504a4cf54/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAwNDgwNjU%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-77ffbc4f36",
@@ -1634,7 +1810,13 @@
     "source": "威科先行",
     "category": "litigation",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/f034064c17/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAwMzkxMTE%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-b2fe802ed0",
@@ -1662,7 +1844,13 @@
     "source": "威科先行",
     "category": "litigation",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/b2fe802ed0/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAwMzA2MTk%3D",
+    "editionLabel": ""
   },
   {
     "id": "article-79cd29444f",
@@ -1700,6 +1888,12 @@
     "source": "大成律师事务所",
     "category": "family",
     "series": null,
-    "language": "zh"
+    "language": "zh",
+    "localUrl": "/publications/79cd29444f/",
+    "authors": [
+      "马乃东"
+    ],
+    "sourceUrl": "https://law.wkinfo.com.cn/professional-articles/detail/NjAwMDAwMzAwOTU%3D",
+    "editionLabel": ""
   }
 ]
