@@ -1,6 +1,7 @@
 import zhCN from './locales/zh-CN.js';
+import en from './locales/en.js';
 import {languages, localizedPath} from './site-config.js';
-const dictionaries = {'zh-CN': zhCN};
+const dictionaries = {'zh-CN': zhCN, en};
 const requestedLanguage = document.documentElement.lang || 'zh-CN';
 export const locale = languages.find(item => item.id === requestedLanguage && item.available);
 if (!locale || !dictionaries[locale.id]) throw new Error(`Language not yet released: ${requestedLanguage}`);
