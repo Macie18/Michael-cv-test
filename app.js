@@ -22,11 +22,12 @@ const languageLinks = otherLanguages.map(item =>
 const navigation = Object.keys(routes).filter(id => ui.nav[id]).map(id =>
   '<a href="' + pagePath(id) + '" ' + (id === page ? 'aria-current="page"' : '') + '>' + ui.nav[id] + '</a>'
 ).join('');
+const brand = ui.brand || {name: site.name, subtitle: site.romanizedName};
 document.querySelector('#site-header').innerHTML = `
   <header class="site-header wrap">
-    <a class="brand" href="${pagePath('home')}" aria-label="${esc(ui.brand.name)} ${ui.nav.home}">
+    <a class="brand" href="${pagePath('home')}" aria-label="${esc(brand.name)} ${ui.nav.home}">
       <span class="brand-mark" aria-hidden="true">M</span>
-      <span class="brand-name">${esc(ui.brand.name)}<small>${esc(ui.brand.subtitle)}</small></span>
+      <span class="brand-name">${esc(brand.name)}<small>${esc(brand.subtitle)}</small></span>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">${ui.nav.menu} <span aria-hidden="true">☰</span></button>
     <nav class="nav" id="main-nav" aria-label="${ui.nav.label}">
