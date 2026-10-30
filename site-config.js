@@ -1,4 +1,4 @@
-// Shared identity and route inventory for both published languages.
+// Shared identity and route inventory; English remains unpublished in this phase.
 // Resolve assets and navigation from the actual deployment directory.
 // Works at localhost /, GitHub project /Michael-cv-test/, and a future custom domain.
 export const basePath = typeof document === 'undefined' ? '/' : new URL('./', import.meta.url).pathname;
@@ -13,11 +13,11 @@ export const site = {
 };
 export const languages = [
   {id: 'zh-CN', label: '中文', prefix: '', available: true},
-  {id: 'en', label: 'English', prefix: '/en', available: true},
+  {id: 'en', label: 'English', prefix: '/en', available: false},
 ];
 export const routes = {
   home: '/', profile: '/profile/', team: '/team/', practice: '/practice/',
-  publications: '/publications/', global: '/global/',
+  updates: '/updates/', publications: '/publications/', global: '/global/',
 };
 export function localizedPath(page, language = 'zh-CN') {
   const locale = languages.find(item => item.id === language);

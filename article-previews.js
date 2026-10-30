@@ -1,5 +1,4 @@
 import {esc} from './app.js';
-import {ui} from './i18n.js';
 
 // Only verified, article-specific covers. Never substitute a webpage screenshot,
 // a publisher's site banner, or a made-up image for an unavailable original cover.
@@ -31,7 +30,7 @@ export function preview(a) {
 }
 
 export function description(a) {
-  const text = ui.articleDescriptions?.[a.id] || linkPreviews[a.id]?.description;
+  const text = linkPreviews[a.id]?.description;
   return text ? `<p class="article-excerpt">${esc(text)}</p>` : '';
 }
 
