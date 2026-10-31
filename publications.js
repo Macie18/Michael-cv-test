@@ -1,7 +1,7 @@
-import {esc,embeddedOrFetch} from './core.js?v=6c47ece14ac5';
-import {sitePath} from './site-config.js?v=6c47ece14ac5';
-import {ui,locale} from './i18n.js?v=6c47ece14ac5';
-import {groupedTimeline,articleTitle} from './publication-view.js?v=6c47ece14ac5';
+import {esc,embeddedOrFetch} from './core.js?v=90cb31687375';
+import {sitePath} from './site-config.js?v=90cb31687375';
+import {ui,locale} from './i18n.js?v=90cb31687375';
+import {groupedTimeline,articleTitle} from './publication-view.js?v=90cb31687375';
 
 const english=locale.id==='en';
 const categories=ui.categories;

@@ -1,5 +1,5 @@
-import {esc} from './core.js?v=6c47ece14ac5';
-import {sitePath} from './site-config.js?v=6c47ece14ac5';
+import {esc} from './core.js?v=90cb31687375';
+import {sitePath} from './site-config.js?v=90cb31687375';
 export const categoryLabels={equity:'股权继承',cross:'跨境继承',family:'婚姻家事',tax:'财富与税务',litigation:'争议解决',english:'英文著述'};
 export function articleTitle(article,ui,english=false){return english?(ui.articleTitles?.[article.id]||article.title):article.title;}
 export function articleLink(article,english=false){

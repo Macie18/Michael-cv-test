@@ -1,7 +1,7 @@
-import {site, languages, localizedPath, routes} from './site-config.js?v=6c47ece14ac5';
-import {ui, locale, pagePath} from './i18n.js?v=6c47ece14ac5';
-import {esc,reveal} from './core.js?v=6c47ece14ac5';
-export {esc,reveal} from './core.js?v=6c47ece14ac5';
+import {site, languages, localizedPath, routes} from './site-config.js?v=90cb31687375';
+import {ui, locale, pagePath} from './i18n.js?v=90cb31687375';
+import {esc,reveal} from './core.js?v=90cb31687375';
+export {esc,reveal} from './core.js?v=90cb31687375';
 
 const page = document.body.dataset.page;
 if (!document.querySelector('link[rel="icon"]')) {
